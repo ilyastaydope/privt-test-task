@@ -13,7 +13,15 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.ilya.privytest2",
+      "developmentTeam": "R26WKDRQYH",
+      "infoPlist": {
+        "NSFaceIDUsageDescription": "We use Face ID or Touch ID to authenticate you securely with passkeys."
+      },
+      "associatedDomains": [
+        "webcredentials:testilya.win"
+      ]
     },
     "android": {
       "adaptiveIcon": {
@@ -21,10 +29,38 @@
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.ilya.privytest2",
+      "permissions": [
+        "USE_BIOMETRIC",
+        "USE_FINGERPRINT"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "scheme": "neobank",
+    "extra": {
+      "privyAppId": "cmi77rpf100s7l90cxlbw1utz",
+      "privyClientId": "client-WY6TBhLvLYFWGUMWuqkWdPVHWUq7xNDWPKorYcT2Cfnf7",
+      "passkeyAssociatedDomain": "https://testilya.win"
+    },
+    "plugins": [
+      "expo-secure-store",
+      "expo-web-browser",
+      "expo-router",
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "deploymentTarget": "15.1",
+            "developmentTeam": "R26WKDRQYH"
+          },
+          "android": {
+            "minSdkVersion": 23
+          }
+        }
+      ]
+    ]
   }
 }
