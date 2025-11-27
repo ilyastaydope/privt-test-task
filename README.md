@@ -107,6 +107,50 @@ In `app.json` → `android`:
 }
 ```
 
+## Passkey Setup & Associated Domains
+
+This project includes full passkey infrastructure setup:
+
+### What Was Configured:
+
+1. **Associated Domains Setup**
+   - Configured `apple-app-site-association` file
+   - Hosted the file at `https://testilya.win/.well-known/apple-app-site-association`
+   - Set up proper CORS headers and content-type
+   - Verified domain association with Apple's CDN
+
+2. **iOS Configuration**
+   - Added `associatedDomains` capability
+   - Configured `webcredentials` entitlement
+   - Set up Face ID/Touch ID usage description
+   - Linked development team for code signing
+
+3. **Web Hosting**
+   - Deployed static website for domain verification
+   - Configured `.well-known` directory structure
+   - Set up proper MIME types for association files
+   - Ensured HTTPS with valid SSL certificate
+
+4. **Privy Integration**
+   - Configured passkey domain in Privy dashboard
+   - Set up app credentials and client IDs
+   - Tested passkey creation and linking flows
+
+### Domain Verification
+
+The app is associated with `testilya.win` for passkey authentication:
+- iOS verifies domain through `apple-app-site-association`
+- File is publicly accessible and properly formatted
+- Domain is configured in both app.json and Privy settings
+
+### Known Issues
+
+**Passkey Sign-In:** Currently experiencing failures with Privy's Expo SDK `loginWithPasskey()` method. This is a known SDK limitation - passkey **creation** and **linking** work correctly, indicating proper domain setup. The issue is isolated to the sign-in flow within Privy's SDK.
+
+**Workaround:** Email/OTP authentication is fully functional and production-ready.
+
+---
+
 ## Authentication
 
 ### Email + OTP
